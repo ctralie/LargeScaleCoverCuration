@@ -36,7 +36,10 @@ def readPage(URL):
 def getAttrDict(attrs):
     attrDict = {}
     for attr in attrs:
-        attrDict[attr[0]] = attr[1].strip()
+        if attr[1]:
+            attrDict[attr[0]] = attr[1].strip()
+        else:
+            attrDict[attr[0]] = ""
     return attrDict
 
 class ListPageParser(HTMLParser):
